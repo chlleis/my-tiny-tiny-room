@@ -1,1 +1,252 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>my tiny, tiny room ♡</title>
+<style>
+:root {
+  --cream: #fffaf2;
+  --pink: #f6e4ed;
+  --purple: #8c76a9;
+  --blue: #e4edf5;
+  --ink: #554d61;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background-color: var(--cream);
+  background-image: radial-gradient(#e8d8ee 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Hiragino Maru Gothic ProN", sans-serif;
+}
+header {
+  text-align: center;
+  padding: 35px 16px 22px;
+  background: rgba(255,250,242,.94);
+  border-bottom: 1px solid #e7d9eb;
+}
+h1 {
+  color: var(--purple);
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 6vw, 48px);
+  font-weight: normal;
+  margin: 5px 0 10px;
+}
+.subtitle { letter-spacing: 2px; font-size: 12px; }
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  background: #f5eaf3;
+}
+nav a, a { color: var(--purple); text-decoration: none; }
+nav a {
+  padding: 8px 12px;
+  border: 1px solid #d9c9e5;
+  border-radius: 14px;
+  background: #fffaf7;
+  font-size: 13px;
+}
+.menu-button {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  border: 1px solid #d9c9e5;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #fffaf2;
+  color: var(--purple);
+  font-size: 20px;
+}
+.drawer {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  right: 12px;
+  top: 64px;
+  width: min(280px, calc(100vw - 24px));
+  padding: 18px;
+  background: #fffaf7;
+  border: 1px solid #d9c9e5;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px #6a526522;
+}
+.drawer.open { display: block; }
+.drawer a {
+  display: block;
+  padding: 12px 6px;
+  border-bottom: 1px dashed #e4d8e9;
+}
+main {
+  max-width: 1050px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.intro {
+  text-align: center;
+  padding: 20px;
+  background: #fffaf2;
+  border: 1px solid #e4d5e9;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+h2 {
+  color: var(--purple);
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.card {
+  background: rgba(255,250,247,.96);
+  border: 1px solid #ddcde7;
+  border-radius: 15px;
+  padding: 18px;
+  min-height: 150px;
+}
+.card p { line-height: 1.8; font-size: 14px; }
+.sticker { font-size: 24px; }
+.small { font-size: 12px; color: #8c8294; }
+footer {
+  text-align: center;
+  padding: 30px 12px;
+  color: var(--purple);
+  font-family: Georgia, serif;
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  header { padding-top: 55px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="sticker">✿ ⋆｡°✩ ♡ ✩°｡⋆ ✿</div>
+  <h1>my tiny, tiny room ♡</h1>
+  <div class="subtitle">A LITTLE ARCHIVE OF MY LIFE</div>
+</header>
+
+<button class="menu-button" id="menuButton"
+  aria-label="メニューを開く" aria-expanded="false"
+  onclick="toggleMenu()">≡</button>
+
+<aside class="drawer" id="drawer">
+  <h2>little menu ♡</h2>
+  <a href="#blog">♡ Blog</a>
+  <a href="#youtube">▷ YouTube watching history</a>
+  <a href="#daily">☁ 日常のらりくらり</a>
+  <a href="#vlog">✿ My vlog</a>
+  <a href="#fashion">☆ Fashion</a>
+  <a href="#books">♧ Books</a>
+  <a href="#movies">☾ Movies & TV</a>
+  <a href="#music">♫ Music</a>
+  <a href="#about">♡ About me</a>
+</aside>
+
+<nav>
+  <a href="#">HOME</a>
+  <a href="#blog">BLOG</a>
+  <a href="#youtube">WATCHING</a>
+  <a href="#vlog">MY VLOG</a>
+  <a href="#fashion">FASHION</a>
+  <a href="#books">BOOKS</a>
+</nav>
+
+<main>
+  <section class="intro">
+    <div class="sticker">🎀 ☁️ 🌷</div>
+    <h2>welcome to my little room!</h2>
+    <p>好きなもの、日常、見たもの、読んだもの。</p>
+    <p>ここに、わたしの人生を少しずつ残していく。</p>
+  </section>
+
+  <div class="grid">
+    <section class="card" id="youtube">
+      <div class="sticker">▷ ♡</div>
+      <h2>recently on YouTube</h2>
+      <p>最近見た動画や、何度も見たいお気に入りを記録する場所。</p>
+      <a href="#youtube">watching history →</a>
+    </section>
+
+    <section class="card" id="daily">
+      <div class="sticker">☁️ ✿</div>
+      <h2>little life lately</h2>
+      <p>カフェ、おでかけ、何気ない日。日常のらりくらり。</p>
+      <a href="#daily">little diary →</a>
+    </section>
+
+    <section class="card" id="fashion">
+      <div class="sticker">♡ ☆</div>
+      <h2>fashion notes</h2>
+      <p>好きな服、コーデ、購入品、いつか欲しいもの。</p>
+      <a href="#fashion">my style →</a>
+    </section>
+
+    <section class="card" id="books">
+      <div class="sticker">♧ 📖</div>
+      <h2>currently reading</h2>
+      <p>読んだ本、読みかけの本、心に残った言葉。</p>
+      <a href="#books">book shelf →</a>
+    </section>
+
+    <section class="card" id="blog">
+      <div class="sticker">✉ ♡</div>
+      <h2>from my diary</h2>
+      <p>考えたことや、忘れたくないことを自由に書く場所。</p>
+      <a href="#blog">read my blog →</a>
+    </section>
+
+    <section class="card" id="vlog">
+      <div class="sticker">🎞️ ✿</div>
+      <h2>my vlog</h2>
+      <p>旅や日々の動画、いつか見返したい思い出。</p>
+      <a href="#vlog">watch my vlog →</a>
+    </section>
+
+    <section class="card" id="movies">
+      <div class="sticker">☾ ★</div>
+      <h2>movies & TV</h2>
+      <p>映画やドラマの鑑賞記録、お気に入りの作品。</p>
+    </section>
+
+    <section class="card" id="music">
+      <div class="sticker">♫ ♡</div>
+      <h2>now playing</h2>
+      <p>最近よく聴いている曲と、好きな音楽。</p>
+    </section>
+
+    <section class="card" id="about">
+      <div class="sticker">🌷 ♡</div>
+      <h2>about me</h2>
+      <p>ここは、わたしの小さなインターネットのお部屋。</p>
+    </section>
+  </div>
+</main>
+
+<footer>made with ♡ · my tiny, tiny room</footer>
+
+<script>
+function toggleMenu() {
+  const drawer = document.getElementById("drawer");
+  const button = document.getElementById("menuButton");
+  const opened = drawer.classList.toggle("open");
+  button.setAttribute("aria-expanded", String(opened));
+}
+document.querySelectorAll(".drawer a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("drawer").classList.remove("open");
+    document.getElementById("menuButton").setAttribute("aria-expanded", "false");
+  });
+});
+</script>
+</body>
+</html>
